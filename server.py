@@ -232,7 +232,10 @@ class CareerGuideHandler(SimpleHTTPRequestHandler):
         host = self.headers.get("Host", "")
         if origin:
             origin_parts = urlsplit(origin)
-            if origin_parts.scheme != "http" or origin_parts.netloc.lower() != host.lower():
+            if (
+                origin_parts.scheme not in ("http", "https")
+                or origin_parts.netloc.lower() != host.lower()
+            ):
                 send_json(self, 403, {"error": "This request origin is not allowed."})
                 return
         if not self.headers.get("Content-Type", "").lower().startswith("application/json"):
@@ -278,8 +281,8 @@ class CareerGuideHandler(SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     load_local_environment()
-    port = int(os.environ.get("PORT", "8000"))
-    server = ThreadingHTTPServer(("127.0.0.1", port), CareerGuideHandler)
+    port = int(os.environ.get("PORT", "5000"))
+    server = ThreadingHTTPServer(("0.0.0.0", port), CareerGuideHandler)
     print(f"CareerGuide is running locally at http://127.0.0.1:{port}")
     if not os.environ.get("GEMINI_API_KEY", "").strip():
         print("AI key not found. Add GEMINI_API_KEY to .env.local and restart this server.")
