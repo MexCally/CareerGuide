@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Chat with CareerGuide's AI assistant about career options, skills, study routes, and next steps.">
+    <meta name="theme-color" content="#071a2b">
+    <title>AI Career Guide | CareerGuide</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="year.js" defer></script>
+    <script type="module" src="assistant.js"></script>
+</head>
+<body class="chat-page">
+    <a class="skip-link" href="#chatInput">Skip to chat</a>
+
+    <header class="site-header chat-page-header">
+        <a class="chat-back" href="index.html#sectors">← <span>Back to careers</span></a>
+        <a class="brand" href="index.html" aria-label="CareerGuide home">
+            <span class="brand-mark" aria-hidden="true">C</span>
+            <span>Career<span class="brand-accent">Guide</span></span>
+        </a>
+        <button id="clearChat" class="chat-clear" type="button">New chat</button>
+    </header>
+
+    <main class="chat-page-main">
+        <div class="chat-page-heading">
+            <p class="eyebrow">CAREERGUIDE AI</p>
+            <h1>Your career exploration space</h1>
+            <p>Ask questions, compare options, and think through practical next steps.</p>
+        </div>
+
+        <section class="chat-card chat-page-card" aria-label="CareerGuide AI chat">
+            <div class="chat-header">
+                <span class="assistant-avatar" aria-hidden="true">C</span>
+                <div>
+                    <h2>CareerGuide assistant</h2>
+                    <p><span class="status-dot" aria-hidden="true"></span> Ready to help you explore</p>
+                </div>
+            </div>
+            <div id="chatContext" class="chat-context" hidden></div>
+            <details class="conversation-history">
+                <summary>Previous conversations <span>(saved on this device)</span></summary>
+                <div id="conversationList" class="conversation-list"></div>
+            </details>
+            <div id="chatMessages" class="chat-messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
+            <div class="chat-suggestions" aria-label="Suggested questions">
+                <button type="button" data-prompt="What skills should I start building for a career in technology?">Skills to build</button>
+                <button type="button" data-prompt="How can I compare two careers that interest me?">Compare careers</button>
+                <button type="button" data-prompt="What questions should I ask someone who works in a career I am considering?">Questions to ask</button>
+            </div>
+            <form id="chatForm" class="chat-form">
+                <label class="visually-hidden" for="chatInput">Ask the CareerGuide assistant</label>
+                <textarea id="chatInput" rows="1" maxlength="2000" placeholder="Ask a career question…" required></textarea>
+                <button id="cancelEdit" class="button button-outline cancel-edit" type="button" hidden>Cancel edit</button>
+                <button id="sendChat" class="button button-primary" type="submit">Send <span aria-hidden="true">→</span></button>
+            </form>
+            <p id="chatStatus" class="chat-status" role="status" aria-live="polite"></p>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="chat-page-footer">
+        <div class="advisor-footer">
+            <span>—</span> Career guidance &amp; professional development <span>—</span>
+            <p class="chat-footer-disclosure">Messages are sent to Google Gemini. The 30 most recent conversations, with up to 12 messages each, are saved in this browser on this device until deleted or browser site data is cleared.</p>
+            <p>© <span data-current-year></span> CareerGuide. All rights reserved.</p>
+        </div>
+        </footer>
+    </main>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore career sectors, compare career paths, and find ideas that fit your interests with CareerGuide.">
+    <meta name="theme-color" content="#071a2b">
+    <title>CareerGuide | Explore careers that fit you</title>
+    <link rel="preload" href="Career_Advisory.png" as="image">
+    <link rel="stylesheet" href="styles.css">
+    <script src="year.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <a class="brand" href="#home" aria-label="CareerGuide home">
+            <span class="brand-mark" aria-hidden="true">C</span>
+            <span>Career<span class="brand-accent">Guide</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="#sectors">Explore sectors</a>
+            <a href="about.html">About</a>
+            <a href="assistant.html">AI career guide</a>
+            <a class="nav-cta" href="#assessment">Take the assessment</a>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section class="hero" id="home" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow"><span aria-hidden="true">✦</span> A clearer way to explore work</p>
+                <h1 id="hero-title">Many paths.<br><span>One that feels like you.</span></h1>
+                <p class="hero-description">Explore careers across industries, understand what each path involves, and use a short assessment to find options worth learning more about.</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#sectors">Explore career sectors <span aria-hidden="true">→</span></a>
+                    <a class="button button-outline" href="#assessment">Take the 5-question assessment</a>
+                </div>
+                <p class="hero-note">A starting point for exploration—not a test that decides your future.</p>
+            </div>
+            <div class="hero-art">
+                <img src="Career_Advisory.png" alt="Career exploration connects interests, skills, education, and personal strengths" width="678" height="452">
+                <div class="hero-art-caption"><span class="caption-icon" aria-hidden="true">◎</span><span><strong>Start with what interests you</strong><small>Then explore the paths connected to it.</small></span></div>
+            </div>
+        </section>
+
+        <section class="intro-section" id="how-it-works" aria-labelledby="how-title">
+            <div class="section-heading">
+                <p class="eyebrow">YOUR NEXT STEP, MADE EASIER</p>
+                <h2 id="how-title">Explore first. Decide with context.</h2>
+                <p>Career paths are broader than a single job title. Browse an entire sector, compare related roles, and use the assessment as one way to get started.</p>
+            </div>
+            <div class="steps-grid">
+                <article class="step-card"><span class="step-number">01</span><h3>Browse sectors</h3><p>Start with an area that catches your interest, from technology to health, business, creative work, and more.</p></article>
+                <article class="step-card"><span class="step-number">02</span><h3>Compare careers</h3><p>See a role’s overview, common study areas, and useful skills before exploring it further.</p></article>
+                <article class="step-card"><span class="step-number">03</span><h3>Reflect on your fit</h3><p>Answer five quick questions to see which sectors align with the interests you selected.</p></article>
+            </div>
+        </section>
+
+        <section class="sector-section" id="sectors" aria-labelledby="sectors-title">
+            <div class="section-heading sector-heading">
+                <div>
+                    <p class="eyebrow">CAREER DIRECTORY</p>
+                    <h2 id="sectors-title">Find your area of interest</h2>
+                    <p>Explore career options grouped by sector. Select any role to jump to its sector and see more detail.</p>
+                </div>
+                <p class="directory-count" id="directoryCount" aria-live="polite"></p>
+            </div>
+            <div class="search-wrap">
+                <label class="visually-hidden" for="careerSearch">Search careers and sectors</label>
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input id="careerSearch" type="search" placeholder="Search careers, sectors, skills, or study areas" autocomplete="off" aria-describedby="searchHint">
+                <p class="visually-hidden" id="searchHint">Results update as you type. Select a career result to jump to its sector.</p>
+                <button id="clearSearch" class="clear-search" type="button" hidden>Clear</button>
+            </div>
+            <p id="searchStatus" class="search-status" role="status" aria-live="polite"></p>
+            <div id="sectorGrid" class="sector-grid"></div>
+            <noscript><p class="empty-state">Career browsing needs JavaScript enabled in your browser.</p></noscript>
+        </section>
+
+        <section class="assessment-section" id="assessment" aria-labelledby="assessment-title">
+            <div class="assessment-intro">
+                <p class="eyebrow">A QUICK SELF-CHECK</p>
+                <h2 id="assessment-title">Get a few ideas to explore.</h2>
+                <p>Five questions. No right or wrong answers. Your results show which sectors matched your choices—not a definitive career prediction.</p>
+            </div>
+
+            <form id="assessmentStart" class="assessment-card">
+                <div class="assessment-card-heading">
+                    <span class="assessment-icon" aria-hidden="true">✦</span>
+                    <div><h3>Start your assessment</h3><p>About 2 minutes</p></div>
+                </div>
+                <label for="studentName">What should we call you?</label>
+                <input id="studentName" name="studentName" type="text" maxlength="60" autocomplete="given-name" placeholder="Your name" required>
+                <label for="studentLevel">Where are you in your education?</label>
+                <select id="studentLevel" name="studentLevel" required>
+                    <option value="">Select an option</option>
+                    <option value="secondary">Secondary school</option>
+                    <option value="college">College or university</option>
+                    <option value="graduate">Recently graduated</option>
+                    <option value="working">Working or changing careers</option>
+                    <option value="other">Other / still exploring</option>
+                </select>
+                <button class="button button-primary button-full" type="submit">Begin assessment <span aria-hidden="true">→</span></button>
+            </form>
+
+            <section id="questionPanel" class="assessment-card question-panel" hidden aria-label="Career assessment questions">
+                <div class="progress-header"><span id="progressLabel">Question 1 of 5</span><span id="progressPercent">20%</span></div>
+                <div id="progressTrack" class="progress-track" role="progressbar" aria-label="Assessment progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><span id="progressFill"></span></div>
+                <form id="questionForm" novalidate>
+                    <fieldset>
+                        <legend id="questionPrompt" tabindex="-1"></legend>
+                        <div id="answerOptions" class="answer-options"></div>
+                    </fieldset>
+                    <p id="answerError" class="form-error" role="alert" hidden>Please choose an answer to continue.</p>
+                    <div class="question-actions">
+                        <button id="backQuestion" class="button button-outline" type="button">Back</button>
+                        <button id="nextQuestion" class="button button-primary" type="submit">Next <span aria-hidden="true">→</span></button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="assessmentResults" class="assessment-card result-panel" hidden aria-labelledby="resultTitle">
+                <div class="result-celebration" aria-hidden="true">✦</div>
+                <p class="eyebrow">YOUR EXPLORATION STARTING POINT</p>
+                <h3 id="resultTitle"></h3>
+                <p id="resultSummary" class="result-summary"></p>
+                <div id="resultList" class="result-list"></div>
+                <p class="result-disclaimer">These suggestions reflect your answers to this short questionnaire. They are not a measure of aptitude, a promise of success, or a substitute for advice from a qualified career professional.</p>
+                <div class="question-actions">
+                    <a class="button button-outline" href="#sectors">Browse all sectors</a>
+                    <button id="restartAssessment" class="button button-primary" type="button">Try again</button>
+                </div>
+            </section>
+        </section>
+
+    </main>
+
+    <a class="assistant-launcher" href="assistant.html" aria-label="Open the CareerGuide AI assistant">
+        <span class="launcher-icon" aria-hidden="true">✦</span>
+        <span>Ask AI-Guide</span>
+    </a>
+
+    <footer class="site-footer">
+        <a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true">C</span><span>Career<span class="brand-accent">Guide</span></span></a>
+        <p>© <span data-current-year></span> CareerGuide. All rights reserved.</p>
+        <a href="#home" class="back-to-top">Back to top ↑</a>
+    </footer>
+</body>
+</html>
