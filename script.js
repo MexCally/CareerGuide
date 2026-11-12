@@ -8,6 +8,10 @@ const sectors = [
         description: "Build, maintain, and protect the digital tools and systems people use every day.",
         careers: [
             ["Software developer", "Design and build applications, websites, and software systems.", "Computer science, software engineering, or related study; programming and problem-solving."],
+            ["Software engineer", "Design, build, test, and maintain reliable software systems for real-world use.", "Computer science, software engineering, or related study; programming, systems thinking, and testing."],
+            ["Computer science", "Study the theory and practice of computing, algorithms, and systems that power software and technology.", "Computer science, mathematics, or related study; programming, algorithms, and logical reasoning."],
+            ["Computer engineer", "Design and connect both the hardware and software parts of computing systems to make them work together effectively.", "Computer engineering, electrical engineering, or computer science; electronics, systems design, and embedded technologies."],
+            ["Computer hardware engineer", "Design and improve the physical components that make computers and electronic systems work.", "Computer engineering, electrical engineering, or computer science; electronics, systems design, and testing."],
             ["Web developer", "Create and maintain websites and web applications.", "Web development or computer science; HTML, CSS, JavaScript, and accessibility."],
             ["Mobile app developer", "Build applications for phones, tablets, and other mobile devices.", "Software development; programming, testing, and mobile platform knowledge."],
             ["Cybersecurity analyst", "Help organisations find and reduce risks to their computer systems and information.", "Cybersecurity, IT, or computer science; networking, analysis, and security fundamentals."],
@@ -30,6 +34,7 @@ const sectors = [
             ["Pharmacist", "Support the safe and effective use of medicines.", "Pharmacy qualification and required registration; medicines knowledge and accuracy."],
             ["Dentist", "Assess and care for teeth, gums, and oral health.", "Dental degree and required registration; clinical skills and patient communication."],
             ["Physiotherapist", "Help people improve movement and recover physical function.", "Physiotherapy qualification and required registration; anatomy and rehabilitation."],
+            ["Veterinary doctor", "Diagnose, treat, and prevent illness in animals while supporting their welfare and public health.", "Veterinary medicine degree and registration; animal science, clinical decision-making, and communication."],
             ["Medical laboratory scientist", "Analyse clinical samples to help diagnose and monitor health conditions.", "Medical laboratory science or related qualification; laboratory methods and accuracy."],
             ["Radiographer", "Use imaging equipment to support diagnosis and treatment.", "Radiography qualification and required registration; imaging technology and patient care."],
             ["Public health specialist", "Work with communities and organisations to improve health and prevent illness.", "Public health, epidemiology, or a related field; research and community engagement."],
@@ -46,6 +51,7 @@ const sectors = [
             ["Mechanical engineer", "Design, test, and improve machines, products, and mechanical systems.", "Mechanical engineering; mechanics, design, and problem-solving."],
             ["Electrical engineer", "Design and maintain electrical systems, equipment, and power networks.", "Electrical engineering; circuits, mathematics, and systems."],
             ["Chemical engineer", "Develop processes that transform materials into useful products safely and efficiently.", "Chemical engineering; chemistry, process design, and safety."],
+            ["Petroleum engineer", "Work on the exploration, extraction, and efficient production of oil and gas resources.", "Petroleum, chemical, or mechanical engineering; geology, fluid systems, and safety."],
             ["Aerospace engineer", "Design, develop, and test aircraft, spacecraft, and related systems.", "Aerospace or mechanical engineering; physics, design, and testing."],
             ["Biomedical engineer", "Apply engineering to medical equipment, devices, and health technologies.", "Biomedical, mechanical, or electrical engineering; biology and design."],
             ["Architect", "Plan buildings and spaces around function, safety, context, and design.", "Architecture degree and required professional pathway; design, drawing, and technical knowledge."],
@@ -94,6 +100,7 @@ const sectors = [
         careers: [
             ["Graphic designer", "Create visual content for brands, publications, and digital products.", "Graphic or communication design; layout, typography, and design software."],
             ["Photographer", "Create and edit images for editorial, commercial, event, or artistic work.", "Photography or relevant portfolio; composition, lighting, and client communication."],
+            ["Cinematography | Editing", "Plan shots and refine footage into polished visual stories for film, digital media, and branded content.", "Media production, film studies, or portfolio experience; camera operation, editing, and storytelling."],
             ["Journalist", "Research, verify, and report information for public audiences.", "Journalism, media, or related study; interviewing, writing, and fact-checking."],
             ["Writer / editor", "Develop, revise, and prepare written content for different readers and formats.", "Writing, communications, or subject expertise; research and editing."],
             ["Animator", "Create moving images and visual stories for film, games, and digital media.", "Animation or digital arts; drawing, storytelling, and animation software."],
@@ -269,14 +276,28 @@ function renderCareerDetail(career, container) {
     container.replaceChildren(detail);
 }
 
-function selectCareer(career, card, button) {
+function clearCareerSelection() {
     sectorGrid.querySelectorAll(".career-chip[aria-pressed='true']").forEach((activeButton) => {
         activeButton.setAttribute("aria-pressed", "false");
     });
     sectorGrid.querySelectorAll(".sector-card.is-focused").forEach((activeCard) => {
         activeCard.classList.remove("is-focused");
     });
+    sectorGrid.querySelectorAll(".career-detail-container").forEach((detailContainer) => {
+        detailContainer.replaceChildren();
+    });
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+}
 
+function selectCareer(career, card, button) {
+    const isAlreadySelected = button.getAttribute("aria-pressed") === "true";
+
+    if (isAlreadySelected) {
+        clearCareerSelection();
+        return;
+    }
+
+    clearCareerSelection();
     button.setAttribute("aria-pressed", "true");
     card.classList.add("is-focused");
     renderCareerDetail(career, card.querySelector(".career-detail-container"));
