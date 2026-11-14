@@ -262,7 +262,7 @@ button { color: inherit; }
 .sector-heading .eyebrow { margin-bottom: 9px; }
 .sector-heading h2 { margin-bottom: 8px; }
 .sector-heading > div > p:last-child { max-width: 680px; margin: 0; color: var(--muted); }
-.directory-count { flex: 0 0 auto; margin: 0 0 4px; color: var(--muted); font-size: 13px; }
+.directory-count { flex: 0 0 auto; margin: 0 0 4px; color: var(--muted); font-size: 13px; font-weight: 800; }
 
 .search-wrap {
     position: relative;
