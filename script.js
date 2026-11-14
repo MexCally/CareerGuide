@@ -54,6 +54,7 @@ const sectors = [
             ["Petroleum engineer", "Work on the exploration, extraction, and efficient production of oil and gas resources.", "Petroleum, chemical, or mechanical engineering; geology, fluid systems, and safety."],
             ["Aerospace engineer", "Design, develop, and test aircraft, spacecraft, and related systems.", "Aerospace or mechanical engineering; physics, design, and testing."],
             ["Biomedical engineer", "Apply engineering to medical equipment, devices, and health technologies.", "Biomedical, mechanical, or electrical engineering; biology and design."],
+            ["Robotics engineer", "Design, build, and test robots and automated systems for tasks in areas such as manufacturing, healthcare, and exploration.", "Robotics, mechatronics, mechanical or electrical engineering, or computer science; programming, electronics, and control systems."],
             ["Architect", "Plan buildings and spaces around function, safety, context, and design.", "Architecture degree and required professional pathway; design, drawing, and technical knowledge."],
             ["Quantity surveyor", "Estimate and manage construction costs, contracts, and project budgets.", "Quantity surveying or construction economics; measurement and cost planning."],
             ["Urban planner", "Help shape land use, transport, housing, and public spaces.", "Urban planning, geography, or a related field; research and community consultation."]
@@ -74,6 +75,23 @@ const sectors = [
             ["Entrepreneur", "Develop and manage a business, product, or service that meets a need.", "No single required degree; business planning, resilience, and customer understanding."],
             ["Lawyer", "Advise clients and represent them in legal matters within a defined area of law.", "Law qualification and jurisdiction-specific licensing; research and advocacy."],
             ["Compliance officer", "Help an organisation understand and meet applicable rules and standards.", "Law, finance, business, or a relevant industry; attention to detail and judgement."]
+        ]
+    },
+    {
+        id: "hospitality-aviation",
+        title: "Hospitality, Travel & Aviation",
+        symbol: "✈",
+        description: "Welcome and support guests, help people explore new places, and keep air travel operating safely.",
+        careers: [
+            ["Hospitality manager", "Coordinate guest services and day-to-day operations in settings such as hotels, restaurants, and resorts.", "Hospitality management, hotel operations, or business; customer service, leadership, and organisation."],
+            ["Hotel manager", "Oversee hotel teams and services to create a safe, welcoming experience for guests.", "Hospitality or hotel management, business, or related experience; team leadership and problem-solving."],
+            ["Event planner", "Plan and coordinate events, managing schedules, suppliers, budgets, and guest needs.", "Event management, hospitality, or business; organisation, communication, and budgeting."],
+            ["Travel consultant", "Help customers plan trips by researching destinations, transport, and travel options.", "Travel and tourism, hospitality, or customer-service experience; research and communication."],
+            ["Tour guide", "Lead visitors through places of interest and share accurate, engaging information about them.", "Tourism, history, or local expertise; public speaking, customer service, and relevant local permits where required."],
+            ["Airline pilot", "Fly aircraft and work with the flight crew to transport passengers or cargo safely.", "Approved flight training and the licences, medical certification, and flight experience required by the aviation authority in your country."],
+            ["Flight attendant", "Help keep passengers safe and comfortable before, during, and after flights.", "Airline training and any local eligibility requirements; safety awareness, teamwork, and customer service."],
+            ["Air traffic controller", "Coordinate aircraft movement to help maintain safe and orderly air traffic.", "Selection and specialist training through the relevant aviation authority; concentration, communication, and decision-making."],
+            ["Aircraft maintenance technician", "Inspect, maintain, and repair aircraft systems to help ensure they meet safety requirements.", "Approved aircraft maintenance training and any required licences; technical knowledge, precision, and safety practices."]
         ]
     },
     {
@@ -165,7 +183,7 @@ const questions = [
         options: [
             { text: "Building or improving digital tools and systems", sectors: ["technology", "engineering"] },
             { text: "Supporting people's health and wellbeing", sectors: ["healthcare", "education-social"] },
-            { text: "Solving business, money, or organisational challenges", sectors: ["business", "public-service"] },
+            { text: "Solving business, money, service, or organisational challenges", sectors: ["business", "public-service", "hospitality-aviation"] },
             { text: "Making, designing, or communicating creative ideas", sectors: ["creative-media", "trades", "education-social"] }
         ]
     },
@@ -174,7 +192,7 @@ const questions = [
         options: [
             { text: "Computing, mathematics, or engineering", sectors: ["technology", "engineering", "science-environment"] },
             { text: "Biology, health, or the natural world", sectors: ["healthcare", "science-environment"] },
-            { text: "Business, economics, society, or law", sectors: ["business", "education-social", "public-service"] },
+            { text: "Business, economics, society, law, or travel", sectors: ["business", "education-social", "public-service", "hospitality-aviation"] },
             { text: "Art, media, design, or practical making", sectors: ["creative-media", "trades", "engineering"] }
         ]
     },
@@ -183,7 +201,7 @@ const questions = [
         options: [
             { text: "Finding why a technical system is not working", sectors: ["technology", "engineering"] },
             { text: "Helping someone through a health or personal challenge", sectors: ["healthcare", "education-social", "public-service"] },
-            { text: "Finding a better way for a business or service to work", sectors: ["business", "public-service", "technology"] },
+            { text: "Finding a better way for a business or service to work", sectors: ["business", "public-service", "technology", "hospitality-aviation"] },
             { text: "Turning an idea into something people can see, use, or experience", sectors: ["creative-media", "trades", "engineering"] }
         ]
     },
@@ -192,7 +210,7 @@ const questions = [
         options: [
             { text: "A technology team, office, or computer lab", sectors: ["technology", "business"] },
             { text: "A clinic, hospital, or science laboratory", sectors: ["healthcare", "science-environment"] },
-            { text: "A school, community organisation, or public service", sectors: ["education-social", "public-service"] },
+            { text: "A school, community organisation, public service, hotel, or airport", sectors: ["education-social", "public-service", "hospitality-aviation"] },
             { text: "A studio, workshop, construction site, or outdoors", sectors: ["creative-media", "trades", "engineering", "science-environment"] }
         ]
     },
@@ -201,7 +219,7 @@ const questions = [
         options: [
             { text: "Create useful technology or solve complex systems problems", sectors: ["technology", "engineering", "science-environment"] },
             { text: "Improve people's health, learning, or everyday lives", sectors: ["healthcare", "education-social", "public-service"] },
-            { text: "Build a sustainable organisation or help people make informed decisions", sectors: ["business", "public-service"] },
+            { text: "Build a sustainable organisation or help people make informed decisions", sectors: ["business", "public-service", "hospitality-aviation"] },
             { text: "Express ideas, create useful things, or bring a vision to life", sectors: ["creative-media", "trades", "engineering"] }
         ]
     }
